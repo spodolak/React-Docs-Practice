@@ -1,4 +1,5 @@
 import "./styles.css";
+import { useState } from "react";
 import MyButton from "./components/MyButton";
 
 const user = {
@@ -17,13 +18,19 @@ const members = houseMembers.map((member) => (
 ));
 
 export default function MyApp() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
   return (
     <div className="App">
       <h1>{user.name}'s practice react app</h1>
       {user.imageUrl && <img src={user.imageUrl}></img>}
       <ul>{members}</ul>
-      <MyButton />
-      <MyButton />
+      <MyButton count={count} onClick={handleClick} />
+      <MyButton count={count} onClick={handleClick} />
     </div>
   );
 }
