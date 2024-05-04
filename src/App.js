@@ -23,6 +23,7 @@ export default function MyApp() {
       {user.imageUrl && <img src={user.imageUrl}></img>}
       <ul>{members}</ul>
       <MyButton />
+      <MyButton />
     </div>
   );
 }
